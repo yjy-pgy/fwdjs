@@ -342,34 +342,34 @@ body {
 
 /* 通用区块样式 */
 .section {
-  padding: 110px 0;
+  padding: 140px 0;
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 70px;
+  margin-bottom: 80px;
 }
 
 .section-header h2 {
-  font-size: 42px;
+  font-size: 48px;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 18px;
-  letter-spacing: 1px;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
 }
 
 .section-subtitle {
-  font-size: 16px;
+  font-size: 18px;
   color: var(--text-secondary);
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .divider {
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+  width: 100px;
+  height: 5px;
+  background: linear-gradient(90deg, #1E88E5, #42A5F5);
   margin: 0 auto;
-  border-radius: 2px;
+  border-radius: 3px;
 }
 
 .divider-center {
@@ -387,30 +387,30 @@ body {
 
 .overview-content {
   text-align: center;
-  margin-bottom: 70px;
+  margin-bottom: 80px;
 }
 
 .overview-content p {
-  font-size: 18px;
+  font-size: 20px;
   color: var(--text-secondary);
-  margin-bottom: 20px;
-  max-width: 900px;
+  margin-bottom: 24px;
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
-  line-height: 1.8;
+  line-height: 1.9;
 }
 
 .overview-features {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
 }
 
 .feature-card {
   background: var(--bg-white);
-  border-radius: 20px;
-  padding: 32px;
-  box-shadow: 0 4px 20px rgba(30, 136, 229, 0.08);
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 8px 40px rgba(30, 136, 229, 0.08);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
@@ -439,33 +439,33 @@ body {
 }
 
 .feature-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 50px rgba(30, 136, 229, 0.15);
-  border-color: rgba(30, 136, 229, 0.15);
+  transform: translateY(-12px);
+  box-shadow: 0 25px 60px rgba(30, 136, 229, 0.18);
+  border-color: rgba(30, 136, 229, 0.2);
 }
 
 .feature-card img {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 24px;
+  border-radius: 16px;
+  margin-bottom: 28px;
   transition: transform 0.4s ease;
 }
 
 .feature-card:hover img {
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
 .feature-card h3 {
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 600;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
   color: var(--text-primary);
 }
 
 .feature-card p {
-  font-size: 15px;
+  font-size: 16px;
   color: var(--text-secondary);
   line-height: 1.7;
 }
@@ -483,24 +483,25 @@ body {
 }
 
 .criteria-card {
-  background: linear-gradient(135deg, #E8F5E9 0%, #F1F8E9 100%);
-  border-radius: var(--radius-xl);
-  padding: 48px 32px;
+  background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+  border-radius: 24px;
+  padding: 56px 40px;
   text-align: center;
-  border: 2px solid #C8E6C9;
-  transition: all 0.3s ease;
+  border: 2px solid rgba(30, 136, 229, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .criteria-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(30, 136, 229, 0.15);
+  border-color: rgba(30, 136, 229, 0.35);
 }
 
 .criteria-icon {
-  width: 72px;
-  height: 72px;
-  margin: 0 auto 24px;
-  color: var(--primary-color);
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 28px;
+  color: #1E88E5;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -512,34 +513,34 @@ body {
 }
 
 .criteria-card h3 {
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 600;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   color: var(--text-primary);
 }
 
 .criteria-card p {
-  font-size: 15px;
+  font-size: 16px;
   color: var(--text-secondary);
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .criteria-value {
-  font-size: 36px;
+  font-size: 42px;
   font-weight: 700;
-  color: var(--primary-color);
+  color: #1E88E5;
 }
 
 .criteria-note {
-  background: linear-gradient(135deg, #FFFDE7 0%, #FFF9C4 100%);
-  padding: 24px 32px;
-  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+  padding: 28px 40px;
+  border-radius: 16px;
   text-align: center;
-  border: 1px solid #FFEB3B;
+  border: 1px solid rgba(30, 136, 229, 0.2);
 }
 
 .criteria-note p {
-  color: #8B6914;
+  color: #1565C0;
   font-weight: 500;
   font-size: 16px;
 }
@@ -636,12 +637,12 @@ body {
 }
 
 .result-card {
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
-  border-radius: var(--radius-xl);
-  padding: 48px 32px;
+  background: linear-gradient(135deg, #1565C0 0%, #1E88E5 50%, #42A5F5 100%);
+  border-radius: 24px;
+  padding: 56px 40px;
   text-align: center;
   color: white;
-  transition: all 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
 }
@@ -651,36 +652,47 @@ body {
   position: absolute;
   top: -50%;
   right: -50%;
-  width: 100px;
-  height: 100px;
-  background: rgba(255, 255, 255, 0.1);
+  width: 150px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+}
+
+.result-card::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -30%;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 50%;
 }
 
 .result-card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--shadow-xl);
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(30, 136, 229, 0.35);
 }
 
 .result-icon {
-  font-size: 56px;
-  margin-bottom: 24px;
+  font-size: 64px;
+  margin-bottom: 28px;
   position: relative;
   z-index: 1;
 }
 
 .result-card h3 {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   position: relative;
   z-index: 1;
 }
 
 .result-value {
-  font-size: 56px;
+  font-size: 64px;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   position: relative;
   z-index: 1;
 }
