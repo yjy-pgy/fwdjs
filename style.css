@@ -404,8 +404,10 @@ body {
 
 .overview-features {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .feature-card {
@@ -1266,23 +1268,41 @@ body {
   }
   
   .section-header h2 {
-    font-size: 32px;
+    font-size: 34px;
   }
   
   .overview-features {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
   
   .feature-card {
-    padding: 28px;
+    padding: 32px;
   }
   
   .feature-card img {
-    height: 160px;
+    height: 180px;
+  }
+  
+  .feature-card h3 {
+    font-size: 22px;
+  }
+  
+  .feature-card p {
+    font-size: 15px;
   }
   
   .criteria-grid {
     grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .criteria-card {
+    padding: 40px 32px;
+  }
+  
+  .criteria-value {
+    font-size: 36px;
   }
   
   .requirement-item {
@@ -1409,43 +1429,85 @@ body {
   }
   
   .stat-value {
-    font-size: 26px;
+    font-size: 28px;
   }
   
   .stat-label {
-    font-size: 11px;
+    font-size: 12px;
   }
   
   .section-header {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
   }
   
   .section-header h2 {
-    font-size: 24px;
+    font-size: 28px;
+  }
+  
+  .section-header p {
+    font-size: 14px;
   }
   
   .divider {
-    width: 50px;
-    height: 3px;
-    margin: 12px auto;
+    width: 60px;
+    height: 4px;
+    margin: 14px auto;
   }
   
   .overview-content {
-    font-size: 14px;
+    margin-bottom: 50px;
+  }
+  
+  .overview-content p {
+    font-size: 15px;
     line-height: 1.8;
   }
   
   .overview-features {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 20px;
   }
   
   .feature-card {
-    padding: 20px;
+    padding: 24px;
+    border-radius: 16px;
   }
   
   .feature-card img {
-    height: 140px;
+    height: 160px;
+    margin-bottom: 20px;
+  }
+  
+  .feature-card h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+  
+  .feature-card p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  .criteria-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .criteria-card {
+    padding: 32px 24px;
+    border-radius: 16px;
+  }
+  
+  .criteria-card h3 {
+    font-size: 20px;
+  }
+  
+  .criteria-card p {
+    font-size: 14px;
+  }
+  
+  .criteria-value {
+    font-size: 32px;
   }
   
   .feature-card h3 {
@@ -1509,38 +1571,59 @@ body {
   
   .results-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 20px;
   }
   
-  .result-item {
-    padding: 20px;
+  .result-card {
+    padding: 32px 24px;
+    border-radius: 16px;
+  }
+  
+  .result-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
   }
   
   .result-value {
-    font-size: 36px;
+    font-size: 40px;
+    margin-bottom: 8px;
   }
   
-  .result-label {
-    font-size: 14px;
+  .result-desc {
+    font-size: 13px;
   }
   
   .process-steps {
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
   }
   
   .step {
     min-width: 100%;
-    max-width: 280px;
-    padding: 16px;
+    max-width: 300px;
+    padding: 24px 20px;
+    border-radius: 16px;
   }
   
   .step-number {
-    width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+  
+  .step-content h3 {
     font-size: 16px;
-    margin-bottom: 10px;
+  }
+  
+  .step-content p {
+    font-size: 13px;
+  }
+  
+  .step-arrow {
+    font-size: 24px;
+    margin: 4px 0;
   }
   
   .step h4 {
