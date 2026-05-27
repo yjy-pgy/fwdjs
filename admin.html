@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>易加云蜂窝店 - 管理员后台</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      background: #F5F7FA;
+      min-height: 100vh;
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+      color: white;
+      padding: 20px 40px;
+      box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+    }
+    
+    .header h1 {
+      font-size: 24px;
+      font-weight: 600;
+    }
+    
+    .header p {
+      font-size: 14px;
+      opacity: 0.8;
+      margin-top: 5px;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+    
+    .card-header {
+      background: #FAFAFA;
+      padding: 20px 24px;
+      border-bottom: 1px solid #E8E8E8;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .card-header h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #333;
+    }
+    
+    .stats {
+      display: flex;
+      gap: 30px;
+    }
+    
+    .stat-item {
+      text-align: center;
+    }
+    
+    .stat-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: #2E7D32;
+    }
+    
+    .stat-label {
+      font-size: 12px;
+      color: #999;
+    }
+    
+    .table-container {
+      overflow-x: auto;
+    }
+    
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .data-table thead {
+      background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+      color: white;
+    }
+    
+    .data-table thead th {
+      padding: 16px 14px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+    
+    .data-table tbody tr {
+      border-bottom: 1px solid #F0F0F0;
+      transition: background 0.2s ease;
+    }
+    
+    .data-table tbody tr:hover {
+      background: #FAFAFA;
+    }
+    
+    .data-table tbody td {
+      padding: 14px;
+      font-size: 14px;
+      color: #666;
+      white-space: nowrap;
+    }
+    
+    .data-table tbody td:first-child {
+      color: #2E7D32;
+      font-weight: 600;
+    }
+    
+    .no-data td {
+      text-align: center;
+      color: #999;
+      padding: 60px;
+    }
+    
+    .btn {
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+    }
+    
+    .btn-delete {
+      background: #FFEBEE;
+      color: #C62828;
+    }
+    
+    .btn-delete:hover {
+      background: #EF9A9A;
+      color: white;
+    }
+    
+    .btn-view {
+      background: #E3F2FD;
+      color: #1976D2;
+      margin-right: 8px;
+    }
+    
+    .btn-view:hover {
+      background: #BBDEFB;
+      color: white;
+    }
+    
+    .btn-clear-all {
+      background: #FFF3E0;
+      color: #E65100;
+      padding: 10px 20px;
+    }
+    
+    .btn-clear-all:hover {
+      background: #FFCC80;
+      color: white;
+    }
+    
+    .view-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .view-modal.show {
+      display: flex;
+    }
+    
+    .modal-content {
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      max-width: 500px;
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    
+    .modal-content h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      color: #333;
+    }
+    
+    .modal-row {
+      display: flex;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #F0F0F0;
+    }
+    
+    .modal-row:last-child {
+      border-bottom: none;
+    }
+    
+    .modal-label {
+      width: 100px;
+      font-weight: 600;
+      color: #999;
+      flex-shrink: 0;
+    }
+    
+    .modal-value {
+      color: #333;
+      flex: 1;
+    }
+    
+    .btn-close {
+      background: #2E7D32;
+      color: white;
+      padding: 12px 40px;
+      border-radius: 25px;
+      margin-top: 20px;
+      width: 100%;
+    }
+    
+    .btn-close:hover {
+      background: #1B5E20;
+    }
+    
+    @media (max-width: 768px) {
+      .header {
+        padding: 15px 20px;
+      }
+      
+      .card-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+      }
+      
+      .stats {
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>易加云蜂窝店 - 管理员后台</h1>
+    <p>合作申请管理系统</p>
+  </div>
+  
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <h2>合作申请列表</h2>
+        <div class="stats">
+          <div class="stat-item">
+            <div class="stat-value" id="totalCount">0</div>
+            <div class="stat-label">总申请数</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>序号</th>
+              <th>门店名称</th>
+              <th>联系人</th>
+              <th>联系电话</th>
+              <th>门店地址</th>
+              <th>商圈订单量(3公里)</th>
+              <th>单店订单量(500米)</th>
+              <th>提交时间</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody id="applicationsBody">
+            <tr class="no-data">
+              <td colspan="9">暂无申请记录</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 20px;">
+      <button class="btn btn-clear-all" onclick="clearAllData()">清空所有数据</button>
+    </div>
+  </div>
+  
+  <!-- 查看详情弹窗 -->
+  <div class="view-modal" id="viewModal">
+    <div class="modal-content">
+      <h3>申请详情</h3>
+      <div class="modal-row">
+        <span class="modal-label">门店名称：</span>
+        <span class="modal-value" id="detailStoreName">-</span>
+      </div>
+      <div class="modal-row">
+        <span class="modal-label">联系人：</span>
+        <span class="modal-value" id="detailContactName">-</span>
+      </div>
+      <div class="modal-row">
+        <span class="modal-label">联系电话：</span>
+        <span class="modal-value" id="detailPhone">-</span>
+      </div>
+      <div class="modal-row">
+        <span class="modal-label">门店地址：</span>
+        <span class="modal-value" id="detailAddress">-</span>
+      </div>
+      <div class="modal-row">
+        <span class="modal-label">商圈订单量(3公里)：</span>
+        <span class="modal-value" id="detailOrders">-</span>
+      </div>
+      <div class="modal-row">
+        <span class="modal-label">单店订单量(500米)：</span>
+        <span class="modal-value" id="detailSingleStoreOrders">-</span>
+      </div>
+      <div class="modal-row">
+        <span class="modal-label">备注信息：</span>
+        <span class="modal-value" id="detailMessage">-</span>
+      </div>
+      <div class="modal-row">
+        <span class="modal-label">提交时间：</span>
+        <span class="modal-value" id="detailTime">-</span>
+      </div>
+      <button class="btn btn-close" onclick="closeModal()">关闭</button>
+    </div>
+  </div>
+
+  <script>
+    // 获取申请记录
+    function getApplications() {
+      const data = localStorage.getItem('applications');
+      return data ? JSON.parse(data) : [];
+    }
+    
+    // 保存申请记录
+    function saveApplications(applications) {
+      localStorage.setItem('applications', JSON.stringify(applications));
+    }
+    
+    // 渲染表格
+    function renderTable() {
+      const tbody = document.getElementById('applicationsBody');
+      const applications = getApplications();
+      
+      document.getElementById('totalCount').textContent = applications.length;
+      
+      if (applications.length === 0) {
+        tbody.innerHTML = '<tr class="no-data"><td colspan="9">暂无申请记录</td></tr>';
+        return;
+      }
+      
+      tbody.innerHTML = applications.map((app, index) => `
+        <tr>
+          <td>${index + 1}</td>
+          <td>${app.storeName || '-'}</td>
+          <td>${app.contactName || '-'}</td>
+          <td>${app.phone || '-'}</td>
+          <td>${app.address || '-'}</td>
+          <td>${app.orders ? app.orders + '单' : '-'}</td>
+          <td>${app.singleStoreOrders ? app.singleStoreOrders + '单' : '-'}</td>
+          <td>${app.submitTime}</td>
+          <td>
+            <button class="btn btn-view" onclick="viewDetail(${index})">查看</button>
+            <button class="btn btn-delete" onclick="deleteApplication(${index})">删除</button>
+          </td>
+        </tr>
+      `).join('');
+    }
+    
+    // 删除申请记录
+    function deleteApplication(index) {
+      if (confirm('确定要删除这条记录吗？')) {
+        const applications = getApplications();
+        applications.splice(index, 1);
+        saveApplications(applications);
+        renderTable();
+      }
+    }
+    
+    // 查看详情
+    function viewDetail(index) {
+      const applications = getApplications();
+      const app = applications[index];
+      
+      document.getElementById('detailStoreName').textContent = app.storeName || '-';
+      document.getElementById('detailContactName').textContent = app.contactName || '-';
+      document.getElementById('detailPhone').textContent = app.phone || '-';
+      document.getElementById('detailAddress').textContent = app.address || '-';
+      document.getElementById('detailOrders').textContent = app.orders ? app.orders + '单' : '-';
+      document.getElementById('detailSingleStoreOrders').textContent = app.singleStoreOrders ? app.singleStoreOrders + '单' : '-';
+      document.getElementById('detailMessage').textContent = app.message || '-';
+      document.getElementById('detailTime').textContent = app.submitTime || '-';
+      
+      document.getElementById('viewModal').classList.add('show');
+    }
+    
+    // 关闭弹窗
+    function closeModal() {
+      document.getElementById('viewModal').classList.remove('show');
+    }
+    
+    // 清空所有数据
+    function clearAllData() {
+      if (confirm('确定要清空所有申请记录吗？此操作不可恢复！')) {
+        localStorage.removeItem('applications');
+        renderTable();
+      }
+    }
+    
+    // 加载数据
+    document.addEventListener('DOMContentLoaded', function() {
+      renderTable();
+      
+      // 点击弹窗外部关闭
+      const modal = document.getElementById('viewModal');
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+      
+      // ESC键关闭弹窗
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeModal();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
