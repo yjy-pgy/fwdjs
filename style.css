@@ -1217,23 +1217,299 @@ body {
 }
 
 @media (max-width: 480px) {
+  .container {
+    padding: 0 12px;
+  }
+  
+  .section {
+    padding: 60px 0;
+  }
+  
+  .navbar {
+    padding: 10px 16px;
+  }
+  
+  .navbar-brand {
+    font-size: 16px;
+  }
+  
+  .navbar-brand img {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .brand-text {
+    display: none;
+  }
+  
+  .mobile-menu-btn {
+    padding: 6px;
+  }
+  
+  .mobile-menu-btn span {
+    width: 22px;
+  }
+  
+  .hero {
+    padding: 80px 0 50px;
+    min-height: auto;
+  }
+  
+  .hero-content {
+    padding: 0 10px;
+  }
+  
   .hero-title {
-    font-size: 32px;
+    font-size: 28px;
+    line-height: 1.3;
+    margin-bottom: 12px;
   }
   
   .hero-subtitle {
-    font-size: 18px;
+    font-size: 15px;
+    margin-bottom: 16px;
+  }
+  
+  .hero-description {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+  
+  .hero-features {
+    font-size: 13px;
   }
   
   .hero-stats {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 0 8px;
+  }
+  
+  .stat-item {
+    padding: 16px 12px;
+  }
+  
+  .stat-value {
+    font-size: 26px;
+  }
+  
+  .stat-label {
+    font-size: 11px;
+  }
+  
+  .section-header {
+    margin-bottom: 30px;
   }
   
   .section-header h2 {
+    font-size: 24px;
+  }
+  
+  .divider {
+    width: 50px;
+    height: 3px;
+    margin: 12px auto;
+  }
+  
+  .overview-content {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  
+  .overview-features {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .feature-card {
+    padding: 20px;
+  }
+  
+  .feature-card img {
+    height: 140px;
+  }
+  
+  .feature-card h3 {
+    font-size: 16px;
+  }
+  
+  .feature-card p {
+    font-size: 13px;
+  }
+  
+  .criteria-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .criteria-card {
+    padding: 20px;
+  }
+  
+  .criteria-card h3 {
+    font-size: 16px;
+  }
+  
+  .criteria-card p {
+    font-size: 13px;
+  }
+  
+  .criteria-value {
     font-size: 28px;
   }
   
-  .container {
-    padding: 0 16px;
+  .requirements-content {
+    gap: 16px;
+  }
+  
+  .requirement-item {
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .req-icon-box {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 12px;
+  }
+  
+  .req-icon-box svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .req-info h3 {
+    font-size: 16px;
+  }
+  
+  .req-info li {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  
+  .results-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .result-item {
+    padding: 20px;
+  }
+  
+  .result-value {
+    font-size: 36px;
+  }
+  
+  .result-label {
+    font-size: 14px;
+  }
+  
+  .process-steps {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .step {
+    min-width: 100%;
+    max-width: 280px;
+    padding: 16px;
+  }
+  
+  .step-number {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .step h4 {
+    font-size: 15px;
+  }
+  
+  .step p {
+    font-size: 12px;
+  }
+  
+  .step-arrow {
+    transform: rotate(90deg);
+    font-size: 24px;
+  }
+  
+  .contact-form-wrapper {
+    padding: 0;
+  }
+  
+  .contact-form {
+    padding: 20px 16px;
+  }
+  
+  .form-group {
+    margin-bottom: 16px;
+  }
+  
+  .form-group label {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .submit-btn {
+    padding: 14px 24px;
+    font-size: 15px;
+  }
+  
+  .footer {
+    padding: 24px 16px;
+    font-size: 12px;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+  
+  .modal-content {
+    padding: 24px 16px;
+    margin: 16px;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  
+  .modal-row {
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 12px;
+  }
+  
+  .modal-label {
+    width: auto;
+    font-size: 12px;
+  }
+  
+  .modal-value {
+    font-size: 14px;
+  }
+  
+  .success-modal .modal-icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .success-modal .modal-icon svg {
+    width: 32px;
+    height: 32px;
   }
 }
