@@ -161,7 +161,7 @@ body {
 .hero {
   background: linear-gradient(135deg, #0D47A1 0%, #1565C0 25%, #1E88E5 50%, #42A5F5 75%, #64B5F6 100%);
   color: white;
-  padding: 120px 0 100px;
+  padding: 130px 0 100px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -270,7 +270,7 @@ body {
   background: white;
   color: var(--primary-color);
   border: none;
-  padding: 12px 48px;
+  padding: 16px 48px;
   border-radius: 35px;
   font-size: 18px;
   font-weight: 600;
