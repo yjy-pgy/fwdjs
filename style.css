@@ -210,8 +210,17 @@ body {
 .hero-description {
   font-size: 18px;
   opacity: 0.85;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.hero-slogan {
+  font-size: 20px;
+  font-weight: 600;
+  color: #FFD54F;
   margin-bottom: 50px;
   letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .hero-buttons {
@@ -1123,6 +1132,12 @@ body {
   
   .hero-description {
     font-size: 14px;
+    margin-bottom: 12px;
+  }
+  
+  .hero-slogan {
+    font-size: 16px;
+    margin-bottom: 40px;
   }
   
   .hero-features {
@@ -1283,7 +1298,12 @@ body {
   
   .hero-description {
     font-size: 13px;
-    margin-bottom: 20px;
+    margin-bottom: 14px;
+  }
+  
+  .hero-slogan {
+    font-size: 14px;
+    margin-bottom: 30px;
   }
   
   .hero-features {
