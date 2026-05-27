@@ -49,8 +49,34 @@ document.addEventListener('DOMContentLoaded', function() {
           top: offsetTop,
           behavior: 'smooth'
         });
+        // 移动端关闭菜单
+        document.getElementById('navbarNav').classList.remove('show');
+        document.getElementById('mobileMenuBtn').classList.remove('active');
       }
     });
+  });
+  
+  // 移动端菜单按钮
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const navbarNav = document.getElementById('navbarNav');
+  
+  if (mobileMenuBtn && navbarNav) {
+    mobileMenuBtn.addEventListener('click', function() {
+      this.classList.toggle('active');
+      navbarNav.classList.toggle('show');
+    });
+  }
+  
+  // 点击其他区域关闭移动端菜单
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.navbar')) {
+      const navbarNav = document.getElementById('navbarNav');
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      if (navbarNav && navbarNav.classList.contains('show')) {
+        navbarNav.classList.remove('show');
+        mobileMenuBtn.classList.remove('active');
+      }
+    }
   });
   
   // 表单提交处理

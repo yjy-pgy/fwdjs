@@ -13,15 +13,21 @@
     
     body {
       font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
-      background: #F5F7FA;
+      background: linear-gradient(135deg, #E3F2FD 0%, #F0F7FF 100%);
       min-height: 100vh;
     }
     
     .header {
-      background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+      background: linear-gradient(135deg, #1E88E5 0%, #42A5F5 100%);
       color: white;
       padding: 20px 40px;
-      box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+      box-shadow: 0 4px 15px rgba(30, 136, 229, 0.3);
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
     
     .header h1 {
@@ -33,6 +39,21 @@
       font-size: 14px;
       opacity: 0.8;
       margin-top: 5px;
+    }
+    
+    .logout-btn {
+      padding: 8px 20px;
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .logout-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
     }
     
     .container {
@@ -93,7 +114,7 @@
     }
     
     .data-table thead {
-      background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+      background: linear-gradient(135deg, #1E88E5 0%, #42A5F5 100%);
       color: white;
     }
     
@@ -232,7 +253,7 @@
     }
     
     .btn-close {
-      background: #2E7D32;
+      background: #1E88E5;
       color: white;
       padding: 12px 40px;
       border-radius: 25px;
@@ -249,6 +270,20 @@
         padding: 15px 20px;
       }
       
+      .header-content {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+      
+      .header h1 {
+        font-size: 18px;
+      }
+      
+      .header p {
+        font-size: 13px;
+      }
+      
       .card-header {
         flex-direction: column;
         gap: 15px;
@@ -258,13 +293,67 @@
       .stats {
         gap: 20px;
       }
+      
+      .data-table {
+        font-size: 13px;
+      }
+      
+      .data-table thead th,
+      .data-table tbody td {
+        padding: 12px 8px;
+      }
+      
+      .btn {
+        padding: 8px 12px;
+        font-size: 12px;
+      }
+      
+      .modal-content {
+        padding: 24px 16px;
+        margin: 16px;
+      }
+      
+      .modal-row {
+        flex-direction: column;
+        gap: 4px;
+      }
+      
+      .modal-label {
+        width: auto;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 12px;
+        margin: 20px auto;
+      }
+      
+      .header h1 {
+        font-size: 16px;
+      }
+      
+      .data-table {
+        display: block;
+        overflow-x: auto;
+      }
+      
+      .logout-btn {
+        padding: 6px 16px;
+        font-size: 13px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="header">
-    <h1>易加云蜂窝店 - 管理员后台</h1>
-    <p>合作申请管理系统</p>
+    <div class="header-content">
+      <div>
+        <h1>易加云蜂窝店 - 管理员后台</h1>
+        <p>合作申请管理系统</p>
+      </div>
+      <button class="logout-btn" onclick="logout()">登出</button>
+    </div>
   </div>
   
   <div class="container">
@@ -349,6 +438,19 @@
   </div>
 
   <script>
+    // 检查登录状态
+    if (localStorage.getItem('adminLoggedIn') !== 'true') {
+      window.location.href = 'login.html';
+    }
+    
+    // 登出功能
+    function logout() {
+      if (confirm('确定要登出吗？')) {
+        localStorage.removeItem('adminLoggedIn');
+        window.location.href = 'login.html';
+      }
+    }
+    
     // 获取申请记录
     function getApplications() {
       const data = localStorage.getItem('applications');
