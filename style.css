@@ -1149,6 +1149,13 @@ body {
     padding: 8px 16px;
   }
 
+  .navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
   .navbar-brand {
     font-size: 17px;
     gap: 10px;
@@ -1202,6 +1209,7 @@ body {
   }
 
   .mobile-menu-btn {
+    order: 3;
     display: flex;
     flex-direction: column;
     gap: 5px;
