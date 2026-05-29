@@ -1334,6 +1334,8 @@ body {
   
   .process-steps {
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   
   .step-arrow {
@@ -1344,6 +1346,7 @@ body {
   
   .step {
     min-width: 200px;
+    max-width: 280px;
   }
   
   .contact-content {
