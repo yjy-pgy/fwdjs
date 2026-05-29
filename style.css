@@ -1207,6 +1207,7 @@ body {
     gap: 5px;
     cursor: pointer;
     padding: 8px;
+    justify-content: flex-end;
   }
 
   .mobile-menu-btn span {
